@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zcit.model.mapper.AppInfosMapper" >
+  <resultMap id="BaseResultMap" type="com.zcit.agent.model.AppInfos" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="boss_id" property="bossId" jdbcType="INTEGER" />
+    <result column="app_name" property="appName" jdbcType="VARCHAR" />
+    <result column="register_maxnum" property="registerMaxnum" jdbcType="INTEGER" />
+    <result column="account_maxage" property="accountMaxage" jdbcType="INTEGER" />
+    <result column="valid_date" property="validDate" jdbcType="INTEGER" />
+    <result column="job_limit" property="jobLimit" jdbcType="INTEGER" />
+    <result column="unvalid_limit" property="unvalidLimit" jdbcType="VARCHAR" />
+    <result column="default_limit" property="defaultLimit" jdbcType="VARCHAR" />
+    <result column="service_qq" property="serviceQq" jdbcType="VARCHAR" />
+    <result column="service_wechat" property="serviceWechat" jdbcType="VARCHAR" />
+    <result column="service_phone" property="servicePhone" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_usercode" property="createUsercode" jdbcType="VARCHAR" />
+    <result column="operate_time" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, boss_id, app_name, register_maxnum, account_maxage, valid_date, job_limit, unvalid_limit,
+    default_limit, service_qq, service_wechat, service_phone, create_time, create_usercode,
+    operate_time, operator
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from app_infos
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>
